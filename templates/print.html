@@ -1,0 +1,35 @@
+<!--print.html-->>
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <title>چاپ فرم</title>
+    <style>
+        @font-face {
+            font-family: 'Vazir';
+            src: url('{{ url_for('static', filename='fonts/Vazir.woff2') }}') format('woff2');
+        }
+        body {
+            font-family: 'Vazir', sans-serif;
+        }
+        @media print {
+            /* استایل‌های مخصوص چاپ */
+        }
+    </style>
+</head>
+<body>
+    <h2>فرم کالا</h2>
+    <p><strong>شخص تحویل گیرنده:</strong> {{ item.person.full_name }}</p>
+    <p><strong>شخص تحویل دهنده:</strong> {{ item.deliverer }}</p>
+    <p><strong>نام کالا:</strong> {{ item.item_spec.item_name }}</p>
+    <p><strong>شماره اموال:</strong> {{ item.item_spec.asset_number }}</p>
+    <p><strong>تعداد:</strong> {{ item.quantity }}</p>
+    <p><strong>تاریخ و ساعت خروج:</strong> {{ item.date_out }} {{ item.time_out }}</p>
+    {% if item.date_in %}
+    <p><strong>تاریخ و ساعت ورود:</strong> {{ item.date_in }} {{ item.time_in }}</p>
+    {% endif %}
+    <script>
+        window.print();
+    </script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+/* style.css*/
+
+
+@font-face {
+    font-family: 'Vazir';
+    src: url('../fonts/Vazir.woff2') format('woff2');
+}
+
+body {
+    font-family: 'Vazir', sans-serif;
+    direction: rtl;
+    text-align: right;
+}
+.container {
+    width: 80%;
+    margin: 0 auto;
+}
+nav a {
+    margin: 0 5px;
+}
+.error {
+    color: red;
+}

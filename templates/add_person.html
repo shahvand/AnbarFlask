@@ -1,0 +1,31 @@
+<!--add_person.html-->>
+
+{% extends "base.html" %}
+{% block content %}
+<h2>افزودن شخص</h2>
+<form method="post">
+    {{ form.hidden_tag() }}
+    <div>
+        {{ form.full_name.label }}<br>
+        {{ form.full_name(size=50) }}
+        {% for error in form.full_name.errors %}
+            <span class="error">{{ error }}</span>
+        {% endfor %}
+    </div>
+    <div>
+        {{ form.unit.label }}<br>
+        {{ form.unit(size=50) }}
+    </div>
+    <div>
+        {{ form.phone.label }}<br>
+        {{ form.phone(size=50) }}
+    </div>
+    <div>
+        {{ form.description.label }}<br>
+        {{ form.description(rows=4, cols=50) }}
+    </div>
+    <div>
+        {{ form.submit() }}
+    </div>
+</form>
+{% endblock %}

@@ -1,0 +1,28 @@
+
+<!--report.html-->>
+{% extends "base.html" %}
+{% block content %}
+<h2>گزارش کالاهای خارج شده</h2>
+<table border="1">
+    <tr>
+        <th>شخص تحویل گیرنده</th>
+        <th>شخص تحویل دهنده</th>
+        <th>نام کالا</th>
+        <th>شماره اموال</th>
+        <th>تعداد</th>
+        <th>تاریخ و ساعت خروج</th>
+        <th>عملیات</th>
+    </tr>
+    {% for item in items_out %}
+    <tr>
+        <td>{{ item.person.full_name }}</td>
+        <td>{{ item.deliverer }}</td>
+        <td>{{ item.item_spec.item_name }}</td>
+        <td>{{ item.item_spec.asset_number }}</td>
+        <td>{{ item.quantity }}</td>
+        <td>{{ item.date_out }} {{ item.time_out }}</td>
+        <td><a href="{{ url_for('print_item', item_id=item.id) }}" target="_blank">چاپ</a></td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

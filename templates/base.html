@@ -1,0 +1,40 @@
+<!--base.html-->>
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <title>مدیریت انبار</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+
+    <!-- اضافه کردن استایل Select2 -->
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+
+    <!-- اضافه کردن اسکریپت Select2 -->
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>مدیریت انبار</h1>
+        <nav>
+            <a href="{{ url_for('deliver') }}">تحویل کالا</a> |
+            <a href="{{ url_for('receive') }}">دریافت کالا</a> |
+            <a href="{{ url_for('report') }}">گزارش</a> |
+            <a href="{{ url_for('add_person') }}">افزودن شخص</a> |
+            <a href="{{ url_for('add_item_spec') }}">افزودن کالا</a> |
+            <a href="{{ url_for('person_items') }}">اموال شخص</a>
+        </nav>
+        <hr>
+        {% with messages = get_flashed_messages(with_categories=true) %}
+          {% if messages %}
+            {% for category, message in messages %}
+              <div class="alert alert-{{ category }}">{{ message }}</div>
+            {% endfor %}
+          {% endif %}
+        {% endwith %}
+        {% block content %}{% endblock %}
+    </div>
+
+    <!-- اضافه کردن jQuery برای استفاده از Select2 -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</body>
+</html>

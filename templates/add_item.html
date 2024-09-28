@@ -1,0 +1,27 @@
+<!--add_item.html-->>
+
+{% extends "base.html" %}
+{% block content %}
+<h2>افزودن کالا</h2>
+<form method="post">
+    {{ form.hidden_tag() }}
+    <div>
+        {{ form.item_name.label }}<br>
+        {{ form.item_name(size=50) }}
+    </div>
+    <div>
+        {{ form.asset_number.label }}<br>
+        {{ form.asset_number(size=50) }}
+        {% for error in form.asset_number.errors %}
+            <span class="error">{{ error }}</span>
+        {% endfor %}
+    </div>
+    <div>
+        {{ form.description.label }}<br>
+        {{ form.description(rows=4, cols=50) }}
+    </div>
+    <div>
+        {{ form.submit() }}
+    </div>
+</form>
+{% endblock %}

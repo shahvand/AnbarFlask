@@ -1,0 +1,15 @@
+<!--recive.html-->>
+{% extends "base.html" %}
+{% block content %}
+<h2>دریافت کالا</h2>
+<form method="post">
+    {{ form.hidden_tag() }}
+    <div>
+        {{ form.asset_number.label }}<br>
+        {{ form.asset_number(size=50) }}
+    </div>
+    <div>
+        {{ form.submit() }}
+    </div>
+</form>
+{% endblock %}

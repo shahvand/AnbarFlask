@@ -1,0 +1,37 @@
+<!--deliver.html-->>
+{% extends "base.html" %}
+{% block content %}
+<h2>تحویل کالا</h2>
+<form method="post">
+    {{ form.hidden_tag() }}
+    <div>
+        {{ form.person_id.label }}<br>
+        {{ form.person_id() }}
+    </div>
+    <div>
+        {{ form.item_spec_id.label }}<br>
+        {{ form.item_spec_id(class="select2") }}
+    </div>
+    <div>
+        {{ form.deliverer.label }}<br>
+        {{ form.deliverer(size=50) }}
+    </div>
+    <div>
+        {{ form.quantity.label }}<br>
+        {{ form.quantity() }}
+    </div>
+    <div>
+        {{ form.submit() }}
+    </div>
+</form>
+
+<!-- اسکریپت برای فعال‌سازی Select2 -->
+<script>
+    $(document).ready(function() {
+        $('.select2').select2({
+            placeholder: 'نام یا شماره اموال را جستجو کنید...',
+            allowClear: true
+        });
+    });
+</script>
+{% endblock %}
